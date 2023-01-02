@@ -9,16 +9,26 @@ function renderSnowContainer() {
     return snowContainer;
 }
 
+const flakeImages = [
+    'images/flake.png',
+    'images/flake2.png',
+    'images/flake3.png',
+];
+
 function renderFlake(snowContainer) {
     const flakeContainer = document.createElement('div');
     flakeContainer.classList.add('flake-container');
 
+    flakeContainer.style.left = `${Math.random() * 100}%`;
+
     const img = document.createElement('img');
-    img.src = 'images/flake.png';
+    img.src = flakeImages[Math.floor(Math.random() * flakeImages.length)];
 
     flakeContainer.appendChild(img);
 
     snowContainer.appendChild(flakeContainer);
+
+    setTimeout(renderFlake, 500, snowContainer);
 
 }
 
