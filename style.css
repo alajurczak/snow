@@ -19,3 +19,44 @@ body {
     height: 100%;
     pointer-events: none;
 }
+
+@keyframes fall {
+    from {
+        top:auto 0%;
+    }
+
+    to {
+        top: 100%;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes leftToRight {
+    from {
+        left: 0%;
+    }
+    to {
+        left: 100%;
+    }
+}
+
+.flake-container {
+    position: absolute;
+    top: 0;
+    padding: 0 50px;
+
+    animation: fall 10s 0s 1 linear forwards;
+}
+
+.flake-container img {
+    position: absolute;
+    animation: rotate 6s 0s infinite linear forwards, leftToRight 2s 0s infinite ease-in-out alternate;
+}
