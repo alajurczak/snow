@@ -64,6 +64,12 @@ body {
 #santa-container {
     display: flex;
     align-items: center;
+    position: absolute;
+    transform: rotateY(180deg);
+}
+
+#santa-container.flipped-santa {
+    transform: rotate(0deg);
 }
 
 @keyframes moveUpAndDown {

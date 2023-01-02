@@ -57,3 +57,27 @@ function renderSanta(snowContainer) {
 const snowContainer = renderSnowContainer();
 renderFlake(snowContainer);
 renderSanta(snowContainer);
+
+let lastPosition = 0;
+let santaDimenstion;
+
+
+document.addEventListener('mousemove', (e) => {
+    const santaContainer = document.querySelector('#santa-container');
+
+    santaDimenstion = santaDimenstion || santaContainer.getBoundingClientRect();
+
+    if (lastPosition < e.pageX) {
+        santaContainer.classList.add('flipped-santa');
+        santaContainer.style.left = `${e.pageX - santaDimenstion.width}px`;
+        santaContainer.style.top = `${e.pageY}px`;
+    }
+
+    if (lastPosition > e.pageX) {
+        santaContainer.classList.remove('flipped-santa');
+        santaContainer.style.left = `${e.pageX}px`;
+        santaContainer.style.top = `${e.pageY}px`;
+    }
+
+    lastPosition = e.pageX;
+})
