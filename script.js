@@ -20,6 +20,7 @@ function renderFlake(snowContainer) {
     flakeContainer.classList.add('flake-container');
 
     flakeContainer.style.left = `${Math.random() * 100}%`;
+    flakeContainer.style.transform = `scale(${Math.random()})`
 
     const img = document.createElement('img');
     img.src = flakeImages[Math.floor(Math.random() * flakeImages.length)];
